@@ -5,10 +5,10 @@ complete <- function(directory="specdata", id = 1:322) {
       
       for(i in seq_along(id)) {
             path <- paste(directory, "/",sprintf("%03d", id[i]), ".csv", sep="")
-            dataset <- read.csv(path)
+            data <- read.csv(path)
             
             idVec[i] <- id[i]
-            nobsVec[i] <- sum(complete.cases(dataset))
+            nobsVec[i] <- sum(complete.cases(data))
       }
       
       dataTable <- data.frame(id = idVec, nobs = nobsVec)
